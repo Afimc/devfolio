@@ -1,34 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
+import Capabilities from './components/Capabilities/Capabilities'
+import Contact from './components/Contact/Contact'
+import Experience from './components/Experience/Experience'
+import Hero from './components/Hero/Hero'
+import Navigation from './components/Navigation/Navigation'
+import Projects from './components/Projects/Projects'
+import Education from './components/Education/Education'
+
+export type Theme = 'light' | 'dark'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === 'undefined') return 'dark'
+    const stored = localStorage.getItem('folio-theme')
+    if (stored === 'light' || stored === 'dark') return stored
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    return prefersDark ? 'dark' : 'light'
+  })
+
+  useEffect(() => {
+    const root = document.documentElement
+    root.setAttribute('data-theme', theme)
+    const bgPage = getComputedStyle(root).getPropertyValue('--bg-page')
+    if (bgPage) {
+      document.body.style.backgroundColor = bgPage.trim()
+    }
+    localStorage.setItem('folio-theme', theme)
+  }, [theme])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="app" id="top">
+      <div className="grid-overlay" aria-hidden />
+      <div className="blur-blob blob-one" aria-hidden />
+      <div className="blur-blob blob-two" aria-hidden />
+
+      <Navigation theme={theme} onToggleTheme={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
+
+      <main className="page-shell main-shell">
+        <Hero />
+        <Capabilities />
+        <Projects />
+        <Experience />
+        <Education />
+        <Contact />
+      </main>
+    </div>
   )
 }
 

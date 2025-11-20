@@ -1,0 +1,72 @@
+.contact {
+  padding: var(--gap-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--gap-md);
+}
+
+.contact__summary {
+  padding: var(--gap-md);
+  border-radius: var(--radius-lg);
+  border: var(--border-weight) solid var(--line-color);
+  background: linear-gradient(130deg, color-mix(in srgb, var(--accent-3) 12%, transparent), var(--bg-surface));
+  box-shadow: var(--shadow-soft);
+}
+
+.contact__summary p {
+  margin: 0 0 var(--gap-sm);
+  color: var(--text-primary);
+  line-height: 1.7;
+}
+
+.contact__actions {
+  display: flex;
+  gap: var(--gap-sm);
+  flex-wrap: wrap;
+}
+
+.contact__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--gap-sm);
+}
+
+.contact__card {
+  padding: var(--gap-sm);
+  border-radius: var(--radius-md);
+  border: var(--border-weight) solid var(--line-color);
+  background: var(--bg-glass);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.contact__card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 25%, var(--line-color));
+}
+
+.contact__label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.contact__value {
+  color: var(--text-strong);
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 900px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+}

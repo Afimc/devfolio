@@ -1,6 +1,5 @@
 export const navLinks = [
   { href: '#top', label: 'Home' },
-  { href: '#capabilities', label: 'Capabilities' },
   { href: '#projects', label: 'Projects' },
   { href: '#experience', label: 'Experience' },
   { href: '#education', label: 'Education' },
@@ -9,15 +8,19 @@ export const navLinks = [
 
 export const heroContent = {
   title: 'Miroslav Peshev',
-  headline: 'Front-End / Full-Stack Web Developer',
+  headline: 'Web Developer',
   summary:
-    'Building modern, scalable, user-focused web apps with Angular, React, and TypeScript—end-to-end from reusable components to performance and real-time data integrations.',
-  tags: ['Angular & React', 'TypeScript / Node / Socket.io', 'Available for new roles'],
+    `Building modern, scalable, user-focused web apps with Angular, React, and 
+    TypeScript—end-to-end from reusable components to performance and real-time data integrations.`,
+  tags: [
+     'HTML', 'SCSS', 'JavaScript / TypeScript ', 'Angular & React', 'Node', 'Socket.io',
+    'Available for new roles', 'UK-based'
+  ],
 }
 
 export const stats = [
   { label: 'Production builds', value: '4', hint: 'Angular & React apps delivered for clients' },
-  { label: 'Page-load gain', value: '30%', hint: 'through structure and component optimizations' },
+  { label: 'Page-load gain', value: 'UpTo 30%', hint: 'through structure and component optimizations' },
   { label: 'Realtime features', value: 'Socket.io', hint: 'live sync, rooms, and secure sessions' },
 ]
 
@@ -119,5 +122,5 @@ export const socials = [
   { label: 'Email', value: 'miroslavpeshev.dev@gmail.com', href: 'mailto:miroslavpeshev.dev@gmail.com' },
   { label: 'LinkedIn', value: 'linkedin.com/in/miroslav-peshev', href: 'https://www.linkedin.com/in/miroslav-peshev' },
   { label: 'GitHub', value: 'github.com/Afimc', href: 'https://github.com/Afimc' },
-  { label: 'Phone', value: '+44 785 625 7524', href: 'tel:+447856257524' },
+  { label: 'Phone', value: '+44 785 625 7524', secondary: '+359 898 475 400', href: 'tel:+447856257524' },
 ]

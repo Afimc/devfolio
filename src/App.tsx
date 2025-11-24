@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import Capabilities from './components/Capabilities/Capabilities'
 import Contact from './components/Contact/Contact'
 import Experience from './components/Experience/Experience'
 import Hero from './components/Hero/Hero'
@@ -39,7 +38,6 @@ function App() {
 
       <main className="page-shell main-shell">
         <Hero />
-        <Capabilities />
         <Projects />
         <Experience />
         <Education />

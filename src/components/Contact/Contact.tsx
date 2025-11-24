@@ -15,10 +15,10 @@ function Contact() {
             engineering. If you want a partner who can own design and delivery, let&apos;s talk.
           </p>
           <div className="contact__actions">
-            <a className="btn" href="mailto:hello@miro.dev">
+            <a className="btn" href="mailto:miroslavpeshev.dev@gmail.com">
               Email me
             </a>
-            <a className="btn btn-ghost" href="https://cal.com" target="_blank" rel="noreferrer">
+            <a className="btn btn-ghost" href="https://calendly.com/miroslavpeshev-dev/30min" target="_blank" rel="noreferrer">
               Schedule a call
             </a>
           </div>
@@ -27,7 +27,20 @@ function Contact() {
           {socials.map((social) => (
             <a key={social.label} className="contact__card" href={social.href} target="_blank" rel="noreferrer">
               <div className="contact__label">{social.label}</div>
-              <div className="contact__value">{social.value}</div>
+              {social.label === 'Phone' && social.secondary ? (
+                <div className="contact__value contact__value--inline">
+                  <span className="contact__badge">UK</span>
+                  <span>{social.value}</span>
+                  <span className="contact__divider">·</span>
+                  <span className="contact__badge">BG</span>
+                  <span>{social.secondary}</span>
+                </div>
+              ) : (
+                <div className={`contact__value${social.secondary ? ' contact__value--inline' : ''}`}>
+                  <span>{social.value}</span>
+                  {social.secondary && <span>{social.secondary}</span>}
+                </div>
+              )}
             </a>
           ))}
         </div>

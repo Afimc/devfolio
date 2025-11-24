@@ -65,6 +65,28 @@
   font-family: var(--font-mono);
 }
 
+.contact__value--inline {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.contact__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1rem 0.35rem;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--accent-3) 14%, transparent);
+  border: var(--border-weight) solid var(--line-color);
+  font-size: 0.8rem;
+}
+
+.contact__divider {
+  color: var(--text-muted);
+}
+
 @media (max-width: 900px) {
   .contact__grid {
     grid-template-columns: 1fr;

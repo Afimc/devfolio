@@ -10,23 +10,22 @@ export const heroContent = {
   title: 'Miroslav Peshev',
   headline: 'Web Developer',
   summary:
-    `Building modern, scalable, user-focused web apps with Angular, React, and 
-    TypeScript—end-to-end from reusable components to performance and real-time data integrations.`,
+    `🚀 Resolving all software challenges, ensuring responsive and cutting-edge web applications that
+    enhance user experiences`,
   tags: [
-     'HTML', 'SCSS', 'JavaScript / TypeScript ', 'Angular & React', 'Node', 'Socket.io',
-    'Available for new roles', 'UK-based'
+     '✅ High-Quality Code', '📱 Responsive Designs', '🌐 Scalable Solutions', '⏰ Timely Delivery', 
+     '📞 Effective Communication','🧠 Problem-Solving',
   ],
 }
 
 export const stats = [
   { label: 'Production builds', value: '4', hint: 'Angular & React apps delivered for clients' },
   { label: 'Page-load gain', value: 'UpTo 30%', hint: 'through structure and component optimizations' },
-  { label: 'Realtime features', value: 'Socket.io', hint: 'live sync, rooms, and secure sessions' },
 ]
 
 export const capabilities = [
   {
-    title: 'Front-end engineering',
+    title: 'Front-end development',
     description: 'Modern UI development with Angular/React, TypeScript, SCSS, and composable component systems.',
     tags: ['Angular', 'React', 'TypeScript', 'SCSS', 'Vite'],
   },
@@ -34,11 +33,6 @@ export const capabilities = [
     title: 'Real-time & APIs',
     description: 'Realtime experiences with Socket.io, secure API integration, and predictable client state.',
     tags: ['Socket.io', 'Express', 'Node.js', 'Firestore', 'Zustand'],
-  },
-  {
-    title: 'Product delivery',
-    description: 'From auth and CRUD to deployment/hosting with Firebase and Linode, with a focus on stability and speed.',
-    tags: ['Auth & CRUD', 'Performance', 'Deployment', 'Debugging', 'API integration'],
   },
 ]
 

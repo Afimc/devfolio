@@ -7,7 +7,7 @@ function Hero() {
   return (
     <section className="hero panel">
       <div className="hero__content">
-        <div className="eyebrow">Design + Engineering</div>
+        <div className="eyebrow">Web development</div>
         <h1 className="hero__title">{headline}</h1>
         <p className="hero__subtitle">{summary}</p>
         <div className="hero__tags">
@@ -32,7 +32,7 @@ function Hero() {
           <span className="hero__signal" />
           <div>
             <div className="hero__name">{title}</div>
-            <div className="hero__role">Product design engineer</div>
+            <div className="hero__role">{headline}</div>
           </div>
         </div>
         <div className="hero__highlights">

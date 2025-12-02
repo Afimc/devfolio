@@ -6,33 +6,10 @@
   scroll-margin-top: clamp(150px, 12vh, 140px);
 }
 
-.projects__carousel {
-  position: relative;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: var(--gap-sm);
-}
-
-.projects__track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(320px, 1fr);
-  gap: var(--gap-md);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 0.25rem 0.4rem;
-  scroll-padding: 1rem;
-  scrollbar-width: none;
-}
-
-.projects__track::-webkit-scrollbar {
-  display: none;
-}
-
 .projects__card {
   position: relative;
   padding: var(--gap-md);
+  min-height: 28rem;
   border-radius: var(--radius-lg);
   border: var(--border-weight) solid var(--line-color);
   background: linear-gradient(145deg, color-mix(in srgb, var(--accent-2) 14%, transparent), var(--bg-surface));
@@ -42,7 +19,6 @@
   gap: var(--gap-sm);
   box-shadow: var(--shadow-soft);
   transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
-  scroll-snap-align: start;
 }
 
 .projects__card::after {
@@ -63,45 +39,6 @@
   border-color: color-mix(in srgb, var(--accent-2) 40%, var(--line-color));
   transform: translateY(-4px);
   box-shadow: var(--shadow-strong);
-}
-
-.projects__control {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: var(--border-weight) solid var(--line-color);
-  background: var(--bg-surface);
-  color: var(--text-strong);
-  font-size: 1.4rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
-}
-
-.projects__control:hover {
-  transform: translateY(-1px);
-  border-color: color-mix(in srgb, var(--accent) 40%, var(--line-color));
-  box-shadow: var(--shadow-soft);
-}
-
-.projects__control:active {
-  transform: translateY(0);
-}
-
-@media (max-width: 640px) {
-  .projects__carousel {
-    grid-template-columns: 1fr;
-  }
-
-  .projects__control {
-    display: none;
-  }
-
-  .projects__track {
-    grid-auto-columns: minmax(260px, 1fr);
-  }
 }
 
 .projects__meta h3 {
@@ -145,4 +82,13 @@
 .projects__repo:hover {
   color: var(--accent);
   border-color: color-mix(in srgb, var(--accent) 50%, var(--line-color));
+}
+
+/* Overrides to apply min-height only on the active card */
+.projects__card {
+  min-height: 20rem;
+}
+
+.projects__card.projects__card--active {
+  min-height: 23.5rem;
 }

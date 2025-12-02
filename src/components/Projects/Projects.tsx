@@ -1,31 +1,45 @@
 import './Projects.css'
-import { useEffect, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { projects } from '../../data/content'
+import Carousel, { sleep } from './Carousel'
+import type { Project } from './Carousel'
+
+const duplicatedProjects = [...projects, ...projects]
+const length = projects.length
+const totalLength = duplicatedProjects.length
 
 function Projects() {
-  const trackRef = useRef<HTMLDivElement | null>(null)
-  const hoverInterval = useRef<number | null>(null)
+  const [order, setOrder] = useState(() => Array.from({ length: totalLength }, (_, idx) => idx))
+  const [isTicking, setIsTicking] = useState(false)
+  const [activeIdx, setActiveIdx] = useState(0)
+  const bigLength = order.length
 
-  const scrollTrack = (direction: 'prev' | 'next', step = 6) => {
-    const track = trackRef.current
-    if (!track) return
-    const delta = step * (direction === 'next' ? 1 : -1)
-    track.scrollBy({ left: delta, behavior: 'auto' })
-  }
-
-  const startHoverScroll = (direction: 'prev' | 'next') => {
-    if (hoverInterval.current) window.clearInterval(hoverInterval.current)
-    hoverInterval.current = window.setInterval(() => scrollTrack(direction), 16)
-  }
-
-  const stopHoverScroll = () => {
-    if (hoverInterval.current) {
-      window.clearInterval(hoverInterval.current)
-      hoverInterval.current = null
+  const prevClick = (jump = 1) => {
+    if (!isTicking) {
+      setIsTicking(true)
+      setOrder((prev) => prev.map((_, i) => prev[(i + jump) % bigLength]))
     }
   }
 
-  useEffect(() => stopHoverScroll, [])
+  const nextClick = (jump = 1) => {
+    if (!isTicking) {
+      setIsTicking(true)
+      setOrder((prev) => prev.map((_, i) => prev[(i - jump + bigLength) % bigLength]))
+    }
+  }
+
+  const handleDotClick = (idx: number) => {
+    if (idx < activeIdx) prevClick(activeIdx - idx)
+    if (idx > activeIdx) nextClick(idx - activeIdx)
+  }
+
+  useEffect(() => {
+    if (isTicking) sleep(350).then(() => setIsTicking(false))
+  }, [isTicking])
+
+  useEffect(() => {
+    setActiveIdx((length - (order[0] % length)) % length)
+  }, [order])
 
   return (
     <section className="projects panel" id="projects">
@@ -34,57 +48,15 @@ function Projects() {
         <span className="muted mono">Outcome-driven builds with speed and polish.</span>
       </div>
 
-      <div className="projects__carousel">
-        <button
-          className="projects__control"
-          type="button"
-          aria-label="Previous project"
-          onMouseEnter={() => startHoverScroll('prev')}
-          onMouseLeave={stopHoverScroll}
-          onBlur={stopHoverScroll}
-        >
-          ‹
-        </button>
-
-        <div className="projects__track" ref={trackRef}>
-          {projects.map((project) => (
-            <article key={project.title} className="projects__card">
-              <div className="projects__meta">
-                <span className="eyebrow">{project.category}</span>
-                <h3>{project.title}</h3>
-                <p className="muted">{project.description}</p>
-              </div>
-              <div className="projects__stack">
-                {project.stack.map((item) => (
-                  <span key={item} className="tag">
-                    {item}
-                  </span>
-                ))}
-              </div>
-              <div className="projects__result">
-                <span className="mono">Result</span>
-                <p>{project.result}</p>
-              </div>
-              {project.gitHubLink && (
-                <a className="projects__repo" href={project.gitHubLink} target="_blank" rel="noreferrer">
-                  View
-                </a>
-              )}
-            </article>
-          ))}
-        </div>
-
-        <button
-          className="projects__control"
-          type="button"
-          aria-label="Next project"
-          onMouseEnter={() => startHoverScroll('next')}
-          onMouseLeave={stopHoverScroll}
-          onBlur={stopHoverScroll}
-        >
-          ›
-        </button>
-      </div>
+      <Carousel
+        items={projects as Project[]}
+        duplicatedItems={duplicatedProjects}
+        order={order}
+        activeIdx={activeIdx}
+        onPrev={() => prevClick()}
+        onNext={() => nextClick()}
+        onDotClick={handleDotClick}
+      />
     </section>
   )
 }

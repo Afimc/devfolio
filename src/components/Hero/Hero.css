@@ -155,10 +155,13 @@
 .hero__highlight h3 {
   margin: 0;
   color: var(--text-strong);
+  margin-bottom: 1.1rem;
+  font-size: 0.95rem;
 }
 
 .hero__capability-tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--gap-xs);
+  margin-top: 0.45rem;
 }

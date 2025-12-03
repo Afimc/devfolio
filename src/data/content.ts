@@ -36,12 +36,12 @@ export const capabilities = [
   {
     title: 'Front-end development',
     description: 'Modern UI development with Angular/React, TypeScript, SCSS, and composable component systems.',
-    tags: ['Angular', 'React', 'TypeScript', 'SCSS', 'Vite'],
+    tags: ['TypeScript','Angular', 'React', 'SCSS', 'Vite'],
   },
   {
     title: 'Real-time & APIs',
     description: 'Realtime experiences with Socket.io, secure API integration, and predictable client state.',
-    tags: ['Socket.io', 'Express', 'Node.js', 'Firestore', 'Zustand'],
+    tags: ['Node.js', 'Express', 'Socket.io'],
   },
 ]
 

@@ -19,9 +19,18 @@ export const heroContent = {
 }
 
 export const stats = [
-  { label: 'Production builds', value: '4', hint: 'Angular & React apps delivered for clients' },
-  { label: 'Page-load gain', value: 'UpTo 30%', hint: 'through structure and component optimizations' },
-]
+  {
+    label: 'Production Experience',
+    value: 'Verified',
+    hint: 'Angular & React apps deployed and maintained in production',
+  },
+  {
+    label: 'Components optimization',
+    value: 'UpTo 30%',
+    hint: 'Through optimized architecture & structural improvements',
+  },
+];
+
 
 export const capabilities = [
   {
@@ -93,7 +102,7 @@ export const education = [
     period: '2009',
     title: 'Vocational High School of Electrical Engineering',
     institution: 'Diploma',
-    detail: 'Circuit design, simulation software, automation technologies, and team-based projects.',
+    detail: 'Automation, electronics, mechatronics, and computer science.',
   },
 ]
 

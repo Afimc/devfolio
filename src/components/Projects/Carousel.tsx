@@ -8,6 +8,7 @@ export type Project = {
   stack: string[]
   result: string
   gitHubLink?: string
+  liveLink?: string
 }
 
 const slideWidth = 32 // rem
@@ -71,10 +72,19 @@ const CarouselSlideItem = ({
           <span className="mono">Result</span>
           <p>{project.result}</p>
         </div>
-        {project.gitHubLink && (
-          <a className="projects__repo" href={project.gitHubLink} target="_blank" rel="noreferrer">
-            View
-          </a>
+        {(project.gitHubLink || project.liveLink) && (
+          <div className="projects__links">
+            {project.liveLink && (
+              <a className="projects__live" href={project.liveLink} target="_blank" rel="noreferrer">
+                Live
+              </a>
+            )}
+            {project.gitHubLink && (
+              <a className="projects__repo" href={project.gitHubLink} target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+            )}
+          </div>
         )}
       </article>
     </li>

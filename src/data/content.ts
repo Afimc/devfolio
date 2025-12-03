@@ -52,7 +52,8 @@ export const projects = [
     description: 'Built a secure, real-time chess app with room creation, password protection, and complete chess logic.',
     stack: ['React', 'TypeScript', 'Vite', 'Zustand', 'SCSS', 'Express', 'Socket.io', 'Linode'],
     result: 'Live game state sync and stable long-running WebSocket sessions in production.',
-    gitHubLink: 'https://github.com/Afimc/chess'
+    gitHubLink: 'https://github.com/Afimc/chess',
+    liveLink: 'https://chessiro.com'
   },
   {
     title: 'NextChar Predictor',
@@ -60,7 +61,8 @@ export const projects = [
     description: 'Custom next-character prediction engine with weighted probabilities and ranked suggestions.',
     stack: ['React', 'TypeScript', 'Zustand', 'Custom algorithm'],
     result: 'Real-time predictions with trainable English and Bulgarian language packs.',
-    gitHubLink: 'https://github.com/Afimc/next-char-predictor'
+    gitHubLink: 'https://github.com/Afimc/next-char-predictor',
+    liveLink: 'https://next-char-predictor.vercel.app/'
   },
   {
     title: 'Neotron Visualizer',
@@ -68,7 +70,8 @@ export const projects = [
     description: 'Interactive probabilistic simulation tool with live visualizations and animated UI.',
     stack: ['React', 'TypeScript', 'Zustand', 'Pixi.js', 'Framer Motion', 'Recharts'],
     result: 'Step-by-step simulation with live stats and motion-rich visuals.',
-    gitHubLink: 'https://github.com/Afimc/Neotron-visualizer'
+    gitHubLink: 'https://github.com/Afimc/Neotron-visualizer',
+    liveLink: 'https://neotron-visualizer.vercel.app/'
   },
   {
     title: 'Logic Gates Simulator',
@@ -76,7 +79,8 @@ export const projects = [
     description: 'Drag-and-drop logic circuit simulator with live signal propagation across connected nodes.',
     stack: ['React', 'TypeScript', 'Vite', 'React Flow'],
     result: 'Responsive editor with real-time gate outputs and adjustable inputs.',
-    gitHubLink: 'https://github.com/Afimc/logic-gate-simulator'
+    gitHubLink: 'https://github.com/Afimc/logic-gate-simulator',
+    liveLink: 'https://logic-gate-simulator-eight.vercel.app/'
   },
 ]
 

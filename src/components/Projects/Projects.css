@@ -69,9 +69,17 @@
   color: var(--text-primary);
 }
 
-.projects__repo {
-  align-self: flex-end;
+.projects__links {
   margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap-sm);
+  width: 100%;
+}
+
+.projects__repo,
+.projects__live {
   font-weight: 600;
   color: var(--text-strong);
   border-bottom: 1px dashed var(--line-color);
@@ -79,7 +87,8 @@
   transition: color var(--transition), border-color var(--transition);
 }
 
-.projects__repo:hover {
+.projects__repo:hover,
+.projects__live:hover {
   color: var(--accent);
   border-color: color-mix(in srgb, var(--accent) 50%, var(--line-color));
 }
